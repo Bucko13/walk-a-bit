@@ -1,14 +1,11 @@
+
 module.exports = {
-  prefix: '~/.bcoin/testnet',
-  network: 'testnet',
-  walletauth: true,
-  useWorkers: true,
-  coinCache: 30000000,
-  query: true,
-  passphrase: 'testme',
-  apiKey: 'testme',
-  pruned: true,
+  network: 'simnet',
+  nodes: ['10.7.64.53', 'redsquad.dev.purse.io'],
   db: 'leveldb',
   logLevel: 'info',
   logFile: true,
+  host: '::',
+  publicHost: '10.7.64.30',
+  listen: true,
 };

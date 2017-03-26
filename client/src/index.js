@@ -1,21 +1,25 @@
-import $ from 'jquery';
-import submitAction from './submitAction';
-/* globals
-  window
-*/
+import React from 'react';
+import { render } from 'react-dom';
 
-// export for others scripts to use
-window.$ = $;
-window.jQuery = $;
+import App from './containers/App';
+import NavBar from './components/NavBar';
+import FormContainer from './containers/FormContainer';
+import forms from './forms.json';
 
-$(() => {
-  const indexTemplate = require('./template.html');
-  $('#app').html(indexTemplate);
-  const formActionButton = $('form button');
-  $.get('/node/fee', (data) => {
-    const value = data.rate;
-    $('input[name="fee"]').val(value);
-  });
+const makeFormItems = formProps => (
+  <FormContainer
+    title={formProps.title}
+    actionName={formProps.actionName}
+    formInputs={formProps.formInputs}
+    formClass={formProps.formClass}
+    key={formProps.actionName}
+  />
+);
 
-  formActionButton.on('click', submitAction);
-});
+render(
+  <App>
+    <NavBar appName="Bcoin Boilerplate" />
+    { forms.map(makeFormItems) }
+  </App>,
+  document.getElementById('app'),
+);
