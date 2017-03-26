@@ -1,15 +1,13 @@
 {
   "name": "bcoin-boilerplate",
   "version": "1.0.0",
-  "description": "A boilerplate repo to get started with a bcoin based project",
+  "description": "Put your bits where your calories are.",
   "scripts": {
-    "build": "browserify client/src/index.js -t babelify --outfile client/dist/build.js",
-    "watch": "watchify client/src/index.js -t babelify --outfile client/dist/build.js --debug --verbose",
-    "build:react": "browserify client/react-src/index.js --extension=.jsx -t babelify --outfile client/dist/build.js",
-    "watch:react": "watchify client/react-src/index.js --extension=.jsx -t babelify --outfile client/dist/build.js --debug --verbose",
-    "start-bcoin": "nodemon ./server/bcoin-server.js",
+    "build": "browserify client/src/index.js --extension=.jsx -t babelify --outfile client/dist/build.js",
+    "watch": "watchify client/src/index.js --extension=.jsx -t babelify --outfile client/dist/build.js --debug --verbose",
     "start-server": "nodemon ./server/server.js",
-    "start-spv": "npm --bcoin_node=spv --config=./spv-config.js run start-bcoin"
+    "start-bcoin": "nodemon ./server/bcoin-server.js",
+    "start-spv": "npm --bcoin_node=spv run start-bcoin"
   },
   "config": {
     "config": "./bcoin-config.js"
@@ -38,7 +36,7 @@
   "dependencies": {
     "assert": "^1.4.1",
     "basic-auth": "^1.1.0",
-    "bcoin": "1.0.0-beta.3",
+    "bcoin": "1.0.0-beta.11",
     "body-parser": "^1.16.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.1",
